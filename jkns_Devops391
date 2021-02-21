@@ -18,6 +18,8 @@ pipeline{
            
         }
         */
+        stage('parallel'){
+        parallel{
       stage("Code Validate")
       {
          steps
@@ -40,6 +42,8 @@ pipeline{
               }
             }
         }
+        }
+        }
 
      stage("Code Test")
       {
@@ -49,7 +53,7 @@ pipeline{
            {
             script{
                  sh """
-                  mvn tes
+                  mvn test
                   exit 1
                  """
               }
