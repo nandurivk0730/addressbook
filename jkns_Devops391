@@ -9,7 +9,7 @@ pipeline{
        jdk   'java 1.8.0'
     }
     stages{
-        stage("Code checkout")
+      /*  stage("Code checkout")
         {
             steps
             {
@@ -17,6 +17,7 @@ pipeline{
             }
            
         }
+        */
       stage("Code Validate")
       {
          steps
@@ -44,14 +45,14 @@ pipeline{
       {
          steps
           {
-        catchError(buildResult:'success',stageResult:'failure')
-      {
+        // catchError(buildResult:'success',stageResult:'FAILURE')
+        //    {
             script{
                  sh """
-                  mvn Tes
+                  mvn tes
                  """
               }
-            }
+        //  }
           }
         }
 
@@ -61,22 +62,12 @@ pipeline{
           {
             script{
                  sh """
-                  mvn Package
+                  mvn package
                  """
               }
             }
         }
-
-
-
-
-
-        
-    }
-
-
-     
-       
     
+    }
     
 }
