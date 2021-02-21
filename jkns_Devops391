@@ -49,7 +49,7 @@ pipeline{
           {
             script{
                  sh """
-                  mvn Test
+                  mvn Tes
                  """
               }
             }
