@@ -45,14 +45,15 @@ pipeline{
       {
          steps
           {
-        // catchError(buildResult:'success',stageResult:'FAILURE')
-        //    {
+         catchError(buildResult:'success',stageResult:'FAILURE')
+           {
             script{
                  sh """
                   mvn tes
+                  exit 1
                  """
               }
-        //  }
+          }
           }
         }
 
