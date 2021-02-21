@@ -42,11 +42,10 @@ pipeline{
 
      stage("Code Test")
       {
-      catchError(buildResult:'success',stageResult:'failure')
-      {
-
          steps
           {
+        catchError(buildResult:'success',stageResult:'failure')
+      {
             script{
                  sh """
                   mvn Tes
