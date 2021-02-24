@@ -1,0 +1,21 @@
+---
+- name : This is my webserver installation
+  hosts : all
+  become: yes
+
+  tasks:
+  - name: Install the HTTPD package
+    package:
+     name : httpd
+     state: present
+
+  - name : Copy web content
+     copy:
+      src: index.html
+      dest: /var/ww/html/
+
+     - name: start the web server
+        service:
+        name: httpd
+        state: started 
+       
