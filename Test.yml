@@ -1,0 +1,27 @@
+---
+- name: this is my snippet
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Install the HTTPD
+    package:
+     name: httpd
+     state: present
+
+  - name: Copy web content
+    Copy:
+     src: index.html
+     dest: /var/www/html/
+
+  - name: start the web server
+    service :
+     name: httpd
+     state: started
+
+     
+
+
+
+
+    
